@@ -1,6 +1,6 @@
 package com.supplyfy.core.config.security;
 
-import com.supplyfy.core.config.TokenProvider;
+import com.supplyfy.core.config.TokenProviderImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ import java.io.IOException;
 public class TokenAuthenticationFilter extends OncePerRequestFilter {
 
     @Autowired
-    private TokenProvider tokenProvider;
+    private TokenProviderImpl tokenProvider;
 
     @Autowired
     private CustomUserDetailsService customUserDetailsService;

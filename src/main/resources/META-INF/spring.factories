@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.supplyfy.core.EasyAuthAutoConfiguration,\
+com.supplyfy.core.config.security.SecurityConfig

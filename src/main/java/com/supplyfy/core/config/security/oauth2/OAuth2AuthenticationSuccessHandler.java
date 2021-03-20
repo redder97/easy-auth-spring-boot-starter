@@ -3,6 +3,7 @@ package com.supplyfy.core.config.security.oauth2;
 
 import com.supplyfy.core.config.ApplicationProperties;
 import com.supplyfy.core.config.TokenProvider;
+import com.supplyfy.core.config.TokenProviderImpl;
 import com.supplyfy.core.exception.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -34,8 +35,8 @@ public class OAuth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
 
 
     @Autowired
-    OAuth2AuthenticationSuccessHandler(TokenProvider tokenProvider, ApplicationProperties applicationProperties,
-                                       HttpCookieOAuth2AuthorizationRequestRepository httpCookieOAuth2AuthorizationRequestRepository) {
+    public OAuth2AuthenticationSuccessHandler(TokenProvider tokenProvider, ApplicationProperties applicationProperties,
+                                              HttpCookieOAuth2AuthorizationRequestRepository httpCookieOAuth2AuthorizationRequestRepository) {
         this.tokenProvider = tokenProvider;
         this.applicationProperties = applicationProperties;
         this.httpCookieOAuth2AuthorizationRequestRepository = httpCookieOAuth2AuthorizationRequestRepository;

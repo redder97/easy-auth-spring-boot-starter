@@ -20,7 +20,6 @@ import org.springframework.stereotype.Service;
 import java.util.Objects;
 import java.util.Optional;
 
-@Service
 public class CustomOAuth2UserService extends DefaultOAuth2UserService {
 
     @Autowired
