@@ -49,6 +49,11 @@ public class Oauth2ClientConfiguration {
         return new InMemoryClientRegistrationRepository(clientRegistration());
     }
 
+    @Bean
+    public HttpCookieOAuth2AuthorizationRequestRepository cookieAuthorizationRequestRepository() {
+        return new HttpCookieOAuth2AuthorizationRequestRepository();
+    }
+
     public AuthorizationGrantType getAuthorizationGrantType() {
         return authorizationGrantType;
     }
