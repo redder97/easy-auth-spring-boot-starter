@@ -3,8 +3,6 @@ package com.supplyfy.core.config.security;
 
 import com.supplyfy.core.config.RestAuthenticationEntryPoint;
 import com.supplyfy.core.config.security.oauth2.HttpCookieOAuth2AuthorizationRequestRepository;
-import com.supplyfy.core.config.security.oauth2.OAuth2AuthenticationFailureHandler;
-import com.supplyfy.core.config.security.oauth2.OAuth2AuthenticationSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

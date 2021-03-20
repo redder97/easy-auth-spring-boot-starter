@@ -20,6 +20,11 @@ public class Oauth2ClientConfiguration {
     private String registrationId;
     private String clientSecret;
     private String redirectUri;
+    private String authorizationUri;
+    private String tokenUri;
+    private String userInfoUri;
+    private String userNameAttributeName;
+    private AuthorizationGrantType authorizationGrantType;
     private List<String> scope;
 
     @Bean
@@ -30,11 +35,11 @@ public class Oauth2ClientConfiguration {
                 .clientId(this.clientId)
                 .clientSecret(this.clientSecret)
                 .redirectUri(this.redirectUri)
-                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
-                .authorizationUri("https://accounts.google.com/o/oauth2/v2/auth")
-                .tokenUri("https://www.googleapis.com/oauth2/v4/token")
-                .userInfoUri("https://www.googleapis.com/oauth2/v3/userinfo")
-                .userNameAttributeName(IdTokenClaimNames.SUB)
+                .authorizationGrantType(this.authorizationGrantType)
+                .authorizationUri(this.authorizationUri)
+                .tokenUri(this.tokenUri)
+                .userInfoUri(this.userInfoUri)
+                .userNameAttributeName(userNameAttributeName)
                 .scope(scope)
                 .build();
     }
@@ -42,6 +47,46 @@ public class Oauth2ClientConfiguration {
     @ConditionalOnMissingBean
     public ClientRegistrationRepository clientRegistrationRepository() {
         return new InMemoryClientRegistrationRepository(clientRegistration());
+    }
+
+    public AuthorizationGrantType getAuthorizationGrantType() {
+        return authorizationGrantType;
+    }
+
+    public void setAuthorizationGrantType(AuthorizationGrantType authorizationGrantType) {
+        this.authorizationGrantType = authorizationGrantType;
+    }
+
+    public String getAuthorizationUri() {
+        return authorizationUri;
+    }
+
+    public void setAuthorizationUri(String authorizationUri) {
+        this.authorizationUri = authorizationUri;
+    }
+
+    public String getTokenUri() {
+        return tokenUri;
+    }
+
+    public void setTokenUri(String tokenUri) {
+        this.tokenUri = tokenUri;
+    }
+
+    public String getUserInfoUri() {
+        return userInfoUri;
+    }
+
+    public void setUserInfoUri(String userInfoUri) {
+        this.userInfoUri = userInfoUri;
+    }
+
+    public String getUserNameAttributeName() {
+        return userNameAttributeName;
+    }
+
+    public void setUserNameAttributeName(String userNameAttributeName) {
+        this.userNameAttributeName = userNameAttributeName;
     }
 
     public String getClientId() {
